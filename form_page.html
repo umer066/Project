@@ -1,0 +1,300 @@
+<!-- DEVELOPER: Waleed Kaleem, IS117-004, Spring 2021 -->
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Contact Form Page</title>
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+      form{padding:0.5%}
+      input[type=text]{border-radius: 4px; border:1px solid #d3d3d3; height: 15%; width: 70%; background-color:#f2eee5;}
+      input[type=moreinfo]{width:100%;background-color:#f2eee5; margin= 10px;}
+      h1{text-align: center;}
+      h5{background-color: #464646; color:#f2eee5; padding-left: 1%}
+      hr{width:30%; }
+      p{text-align: center;}
+      textarea {
+          width: 75%;
+          height: 100px;
+          padding: 12px 20px;
+          box-sizing: border-box;
+          border: 1px solid #d3d3d3;
+          border-radius: 4px;
+          font-size: 16px;
+          resize: none;
+          }
+      .row{
+        display:flex;
+      }
+      .button_container{
+        display:flex;
+        margin-top: 5%;
+      }
+      .column {
+        flex:30%;
+        float:left;
+        left-padding:5%;
+        right-padding:5%;
+        width: 33%;
+      }
+      .column_dif{
+        flex:30%;
+        float:left;
+        padding:1%;
+        width: 33%;
+        border-radius: 4px;
+        background-color:#f2eee5;
+
+      }
+      .top_container {
+        padding-top: 2%;
+        padding-bottom: 2%;
+      }
+      .lead{
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+      .form_class{
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 10%;
+        padding-left: 10%;
+        padding-right: 10%;
+        background-color:#f6ad7b ;
+        border-radius: 60px;
+      }
+      .header_form_sec{
+        display: flex;
+      }
+      
+      /*DropDown Styling_________*/
+      .custom-select {
+        position: relative;
+      }
+      .custom-select select {
+        display: none; 
+      }
+      .select-selected {
+        background-color:#CAA184;
+      }
+      /*Arrow in select menu*/
+      .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+      }
+      .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+      }
+
+      /*style the items (options), including the selected item:*/
+      .select-items div,.select-selected {
+        color: #ffffff;
+        padding: 8px 14px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /*style items (options):*/
+      .select-items {
+        position: absolute;
+        background-color: #B8A89D;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+      }
+
+      /*hide the items when the select box is closed:*/
+      .select-hide {
+        display: none;
+      }
+
+      .select-items div:hover, .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+  </style>
+  <script>
+      /* Function to validate that user filled out name and email */
+      function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+          alert("First name field must be filled out");
+        }
+        var e = document.forms["myForm"]["email"].value;
+        if (e == "") {
+          alert("Email field must be filled out");
+        }
+        var y = document.forms["myForm"]["lname"].value;
+        if (y == "") {
+          alert("Last name field must be filled out");
+          return false;
+        }
+      }
+  </script>
+</head>
+<body>
+  <header>
+      <nav class="navbar" id="nav">
+          <a class="item siteName" href="index.html">HappyTails</a>
+          <a class="item" href="about.html">About</a>
+          <a class="item" href="animalList.html">Find a Pet</a>          
+          <a class="item" href="Policy.html">Policy</a>
+          <a class="item" href="Success.html">Stories</a>
+          <a class="item" href="form_page.html">Contact Form</a>
+    		  <a class="item" href="Resources.html">Resources</a>
+          <a class="item icon" href="javascript:void(0);" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+          </a>
+      </nav>
+  </header>
+	  <div class="top_container">
+      <h1>Adoption Form</h1>
+      <p class="lead">
+        Please fill out this form with your personal information so we can perform a relevant background check. Please know that this is a standard proceduce we do to ensure that all of our pups go to safe homes! We appreciate your compliance.
+      </p>
+    </div>
+
+    <form name="myForm" class = "form_class" onsubmit="return validateForm()">
+        <div class="owner_form">
+            <h5>Your Info</h5>
+            <div class="row">
+              <div class="column-3">
+                <input type="text" name="fname" placeholder="First name*" ><br><br>
+                <input type="text" name="email" placeholder="Email*" ><br><br>
+                <div class="custom-select" style="width:100px;">
+                  <select>
+                    <option value="0">Country</option>
+                    <option value="1">USA</option>
+                    <option value="2">Mexico</option>
+                    <option value="3">Canada</option>
+                    <option value="4">Other</option>
+                  </select>
+                </div>
+                <script>
+                    var x, i, j, selElmnt, a, b, c;
+                    /*get elem with custom select class:*/
+                    x = document.getElementsByClassName("custom-select");
+                    for (i = 0; i < x.length; i++) {
+                      selElmnt = x[i].getElementsByTagName("select")[0];
+                      a = document.createElement("DIV");
+                      a.setAttribute("class", "select-selected");
+                      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                      x[i].appendChild(a);
+                      /*for each element, create a new DIV that will contain the option list:*/
+                      b = document.createElement("DIV");
+                      b.setAttribute("class", "select-items select-hide");
+                      for (j = 1; j < selElmnt.length; j++) {
+                        c = document.createElement("DIV");
+                        c.innerHTML = selElmnt.options[j].innerHTML;
+                        c.addEventListener("click", function(e) {
+                            /*update the original select box when clicked*/
+                            var y, i, k, s, h;
+                            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                            h = this.parentNode.previousSibling;
+                            for (i = 0; i < s.length; i++) {
+                              if (s.options[i].innerHTML == this.innerHTML) {
+                                s.selectedIndex = i;
+                                h.innerHTML = this.innerHTML;
+                                y = this.parentNode.getElementsByClassName("same-as-selected");
+                                for (k = 0; k < y.length; k++) {
+                                  y[k].removeAttribute("class");
+                                }
+                                this.setAttribute("class", "same-as-selected");
+                                break;
+                              }
+                            }
+                            h.click();
+                        });
+                        b.appendChild(c);
+                      }
+                      x[i].appendChild(b);
+                      a.addEventListener("click", function(e) {
+                          /*close all other options*/
+                          e.stopPropagation();
+                          closeAllSelect(this);
+                          this.nextSibling.classList.toggle("select-hide");
+                          this.classList.toggle("select-arrow-active");
+                        });
+                    }
+                    function closeAllSelect(elmnt) {
+                      /*a function that will close all select boxes in the document,
+                      except the current select box:*/
+                      var x, y, i, arrNo = [];
+                      x = document.getElementsByClassName("select-items");
+                      y = document.getElementsByClassName("select-selected");
+                      for (i = 0; i < y.length; i++) {
+                        if (elmnt == y[i]) {
+                          arrNo.push(i)
+                        } else {
+                          y[i].classList.remove("select-arrow-active");
+                        }
+                      }
+                      for (i = 0; i < x.length; i++) {
+                        if (arrNo.indexOf(i)) {
+                          x[i].classList.add("select-hide");
+                        }
+                      }
+                    }
+                </script><br>               
+          </div>
+          <div class="column-3">
+            <input type="text" name="lname" placeholder="Last name*" ><br><br>
+            <input type="text" name="address" placeholder="Street Address" ><br><br> 
+          </div>
+          <div class="column-3" style="background-color:#CAA184; border-radius: 15%;padding: 2% ">
+            <input type="radio" name="type" value="first" checked> 1st time Owner<br>
+            <input type="radio" name="type" value="other"> Current Owner<br>
+            <input type="radio" name="type" value="other"> Past Owner<br>
+            <input type="radio" name="type" value="past"> Pet Sitter
+          </div>
+        </div><br>
+            <input type="checkbox" name="type" value="Save" checked> Sign me up for news and events!<br>
+            <input type="checkbox" name="type" value="consent" checked> I consent to HappyTails performing a background check. <br>
+       </div>
+       <div class="dog_info">
+         <h5>Dog Info</h5>
+         Please describe your motivation for adopting one of our pets:<br><br>
+         <textarea></textarea>
+         <div class="button_container">
+            <input class="button-small-reset" type="reset" >
+            <input type="submit" class="button-small" value="Submit" ><br>
+        </div>
+      </div>
+</form>
+
+	  <footer>
+        <p>Waleed Kaleem July 5, 2022</p>
+        <div class="shortcut">
+           <p><a class="item" href="index.html">Home</a></p>
+			     <p><a class="item" href="about.html">About</a></p>
+			     <p><a class="item" href="Policy.html">Policy</a></p>
+			     <p><a class="item" href="Success.html">Stories</a></p>
+			     <p><a class="item" href="animalList.html">List of Pets</a></p>
+			     <p><a class="item" href="form_page.html">Contact Form</a></p>
+			     <p><a class="item" href="Resources.html">Resources</a></p>
+        </div>
+    </footer>
+	 
+	 <script>
+    /* Responsive Footer Function */
+		function myFunction() {
+			var x = document.getElementById("nav");
+			if (x.className === "navbar") {
+				x.className += " responsive";
+			} else {
+				x.className = "navbar";
+			}
+		}
+	 </script>
+
+</body>
+</html>
