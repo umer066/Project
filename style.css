@@ -31,24 +31,24 @@ body {
 }
 
 .first {
-    background-image: url("assets/img/dog4.jpg");
+    background-image: url("assets/img/p1.jpg");
 
 }
 
 .second {
-    background-image: url("assets/img/dog8.jpg");
+    background-image: url("assets/img/p2.jpg");
 }
 
 .third {
-    background-image: url("assets/img/dog5.jpg")
+    background-image: url("assets/img/p3.jpg")
 }
 
 .fourth {
-    background-image: url("assets/img/dog10.jpg");
+    background-image: url("assets/img/p4.jpg");
 }
 
 .fifth {
-    background-image: url("assets/img/dog11.jpg");
+    background-image: url("assets/img/p5.jpg");
 }
 
 
